@@ -17,5 +17,13 @@ module.exports = {
     return res.json(user)
   },
 
+  async findUser (req, res) {
+    const { email } = req.params
+
+    const user = await User.findOne(email)
+
+    return res.json(user)
+  },
+
 }
 

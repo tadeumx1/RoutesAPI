@@ -13,7 +13,7 @@ module.exports = {
             // ao invés de fazer muitas queries só vai ter duas queries uma 
             // para os projetos e outra para buscar os usuários daqueles projetos
 
-            const markers = await Marker.find().populate('author');
+            const markers = await Marker.find().populate('author', '-password');
         
             return res.send({ markers }); 
     
@@ -30,7 +30,7 @@ module.exports = {
 
         try {
 
-            const marker = await Marker.findById(req.params.id)
+            const marker = await Marker.findById(req.params.id).populate('author', '-password')
 
             return res.json(marker)
         

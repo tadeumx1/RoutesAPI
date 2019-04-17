@@ -93,7 +93,7 @@ module.exports = {
 
         try {
 
-            await Route.findOneAndDelete(req.params.id)
+            await Route.findByIdAndDelete(req.params.id)
 
             return res.send()
 
